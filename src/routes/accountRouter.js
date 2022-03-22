@@ -15,9 +15,9 @@ router.get("/success", (req, res) => {
 
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
 router.get('/auth/callback', passport.authenticate('google', { failureRedirect: '/failed', successRedirect: '/success', }),);
-router.get("/logout", (req, res) => {
+router.delete("/logout", (req, res) => {
     req.logout();
-    res.redirect('/login');
+    res.status(200)
 })
 
 
